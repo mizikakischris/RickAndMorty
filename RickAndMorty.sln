@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35728.132 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RickAndMorty_WebApi", "RickAndMorty_WebApi\RickAndMorty_WebApi.csproj", "{D5F07C67-75D3-44FC-8284-7BAF43A1228A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RickAndMorty.WebApi", "RickAndMorty_WebApi\RickAndMorty.WebApi.csproj", "{D5F07C67-75D3-44FC-8284-7BAF43A1228A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RickAndMorty.Domain", "RickAndMorty.Domain\RickAndMorty.Domain.csproj", "{788D19AD-ECF7-44AA-8A3B-4EE05444AE02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RickAndMorty.Application", "RickAndMorty.Application\RickAndMorty.Application.csproj", "{D6456D3F-1F37-43B1-93E4-476FC6769D70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RickAndMorty.Common", "RickAndMorty.Common\RickAndMorty.Common.csproj", "{0D5A9887-1067-47A1-B1BA-BD920EBE6321}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{D5F07C67-75D3-44FC-8284-7BAF43A1228A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5F07C67-75D3-44FC-8284-7BAF43A1228A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5F07C67-75D3-44FC-8284-7BAF43A1228A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{788D19AD-ECF7-44AA-8A3B-4EE05444AE02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{788D19AD-ECF7-44AA-8A3B-4EE05444AE02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{788D19AD-ECF7-44AA-8A3B-4EE05444AE02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{788D19AD-ECF7-44AA-8A3B-4EE05444AE02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6456D3F-1F37-43B1-93E4-476FC6769D70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6456D3F-1F37-43B1-93E4-476FC6769D70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6456D3F-1F37-43B1-93E4-476FC6769D70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6456D3F-1F37-43B1-93E4-476FC6769D70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D5A9887-1067-47A1-B1BA-BD920EBE6321}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D5A9887-1067-47A1-B1BA-BD920EBE6321}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D5A9887-1067-47A1-B1BA-BD920EBE6321}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D5A9887-1067-47A1-B1BA-BD920EBE6321}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
