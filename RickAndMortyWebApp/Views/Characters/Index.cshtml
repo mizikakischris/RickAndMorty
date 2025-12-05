@@ -1,0 +1,35 @@
+﻿@using RickAndMortyWebApp.Models.Dto;
+@model CharactersDomainResponseDto
+
+
+@{
+    ViewData["Title"] = "Alive Characters";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Species</th>
+            <th>Gender</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var character in Model.CharactersList)
+        {
+            <tr>
+                <td>@character.Name</td>
+                <td>@character.Status</td>
+                <td>@character.Species</td>
+                <td>@character.Gender</td>
+                <td>
+                    <img src="@character.Image" alt="@character.Name" width="50" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
