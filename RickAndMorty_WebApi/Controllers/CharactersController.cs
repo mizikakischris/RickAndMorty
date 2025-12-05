@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using RickAndMorty.Application.Features.Queries;
 using RickAndMorty.Common.Utils;
 using RickAndMorty.Domain.Models;
+using RickAndMorty.WebApi.Utils;
 
 namespace RickAndMorty.WebApi.Controllers;
 

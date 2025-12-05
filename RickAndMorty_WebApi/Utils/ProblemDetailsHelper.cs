@@ -1,9 +1,8 @@
 ﻿using FluentResults;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RickAndMorty.Common.Errors;
 
-namespace RickAndMorty.Common.Utils;
+namespace RickAndMorty.WebApi.Utils;
 
 public static class ProblemDetailsHelper
 {

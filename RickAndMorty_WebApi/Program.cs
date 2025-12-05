@@ -1,10 +1,8 @@
-using System.Reflection;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi;
 using RickAndMorty.Application;
 using RickAndMorty.Infrastructure;
-using RickAndMorty.Infrastructure.HttpClients.RickAndMorty;
-using RickAndMorty.Infrastructure.ServiceCollectionExtensions;
-using RickAndMorty.Infrastructure.Services;
+using RickAndMorty.Infrastructure.Persistence;
 using RickAndMorty.WebApi;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,7 +31,15 @@ builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddWebApiServices(builder.Configuration);
 
+// Connection string from appsettings.json
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// Register DbContext
+builder.Services.AddDbContext<RickAndMortyDbContext>(options =>
+    options.UseSqlServer(connectionString));
+
 var app = builder.Build();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

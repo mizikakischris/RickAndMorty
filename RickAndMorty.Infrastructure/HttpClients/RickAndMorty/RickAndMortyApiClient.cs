@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using RickAndMorty.Application.Abstractions;
+using RickAndMorty.Application.Interfaces;
 using RickAndMorty.Domain.Models;
 using RickAndMorty.Infrastructure.Models;
 using RickAndMorty.Infrastructure.Services;
