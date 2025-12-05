@@ -1,4 +1,6 @@
-﻿using RickAndMortyWebApp.Models.Dto;
+﻿using RickAndMorty.Domain.Models;
+using RickAndMortyWebApp.Models.Dto;
+using CharactersResult = RickAndMortyWebApp.Models.Dto.CharactersResult;
 
 namespace RickAndMortyWebApp.Services;
 
@@ -12,9 +14,9 @@ public class CharactersService : BaseService, ICharactersService
         _rickAndMortyUrl = configuration.GetValue<string>("ServiceUrls:RickAndMortyAPI");
     }
 
-    public Task<CharactersDomainResponseDto> GetAllAsync()
+    public Task<CharactersResult> GetAllAsync()
     {
-        return SendAsync<CharactersDomainResponseDto>(
+        return SendAsync<CharactersResult>(
             new APIRequest
             {
                 ApiType = ApiType.GET,

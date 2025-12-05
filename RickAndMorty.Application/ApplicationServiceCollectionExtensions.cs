@@ -6,10 +6,10 @@ namespace RickAndMorty.Application;
 
 public static class ApplicationServiceCollectionExtensions
 {
-    public static IServiceCollection AddApplication(this IServiceCollection services)
+    public static IServiceCollection AddApplication(this IServiceCollection services )
     {
         services.AddMediatR(typeof(CharactersQueryHandler).Assembly);
-       
+        services.AddMemoryCache();
         return services;
     }
 }

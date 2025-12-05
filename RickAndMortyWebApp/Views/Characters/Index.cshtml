@@ -1,5 +1,5 @@
 ﻿@using RickAndMortyWebApp.Models.Dto;
-@model CharactersDomainResponseDto
+@model CharactersResult
 
 
 @{
@@ -19,7 +19,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var character in Model.CharactersList)
+        @foreach (var character in Model.Characters.CharactersList)
         {
             <tr>
                 <td>@character.Name</td>

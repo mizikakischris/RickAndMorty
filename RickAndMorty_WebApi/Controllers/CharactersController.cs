@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using RickAndMorty.Application.Features.Queries;
 using RickAndMorty.Domain.Models;
@@ -12,21 +11,24 @@ namespace RickAndMorty.WebApi.Controllers;
 public class CharactersController : ControllerBase
 {
     private readonly IMediator _mediator;
-    private readonly IMapper _mapper;
 
-    public CharactersController(IMediator mediator, IMapper mapper)
+    public CharactersController(IMediator mediator)
     {
         _mediator = mediator;
-        _mapper = mapper;
     }
 
     [HttpGet]
     [ProducesResponseType(typeof(CharactersDomainResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(BadRequestObjectResult), StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<CharactersDomainResponse>> GetCharacters(CancellationToken cancellationToken)
+    [HttpGet]
+    public async Task<ActionResult<CharactersResult>> GetCharacters(CancellationToken cancellationToken)
     {
-        var charactersResult = await _mediator.Send(new CharactersQuery(), cancellationToken);
+        var result = await _mediator.Send(new CharactersQuery(), cancellationToken);
 
-        return charactersResult.ToActionResult(HttpContext);
+        if (result.IsSuccess && result.Value != null)
+        {
+            Response.Headers["from-database"] = result.Value.FromDatabase ? "true" : "false";
+        }
+        return result.ToActionResult(HttpContext);
     }
 }
