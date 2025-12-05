@@ -1,13 +1,6 @@
-﻿using RickAndMorty.Domain.Models;
+﻿namespace RickAndMorty.Domain.Models;
 
-namespace RickAndMorty.WebApi.Responses;
-
-public class CharactersListResponse
-{
-    public IEnumerable<CharactersResponse> Results { get; set; }
-}
-
-public class CharactersResponse
+public class CharacterDto
 {
     public int Id { get; set; }
     public string Name { get; set; }
@@ -15,8 +8,8 @@ public class CharactersResponse
     public string Species { get; set; }
     public string Type { get; set; }
     public string Gender { get; set; }
-    public CharacterLocation Origin { get; set; }
-    public CharacterLocation Location { get; set; }
+    public CharacterLocationDto Origin { get; set; }
+    public CharacterLocationDto Location { get; set; }
     public string Image { get; set; }
     public List<string> Episode { get; set; }
     public string Url { get; set; }

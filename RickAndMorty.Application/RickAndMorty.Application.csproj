@@ -9,9 +9,11 @@
   <ItemGroup>
     <PackageReference Include="FluentResults" Version="4.0.0" />
     <PackageReference Include="MediatR" Version="14.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RickAndMorty.Common\RickAndMorty.Common.csproj" />
     <ProjectReference Include="..\RickAndMorty.Domain\RickAndMorty.Domain.csproj" />
   </ItemGroup>
 

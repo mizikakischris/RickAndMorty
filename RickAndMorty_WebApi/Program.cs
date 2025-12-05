@@ -1,10 +1,17 @@
+using System.Reflection;
 using Microsoft.OpenApi;
+using RickAndMorty.Application;
+using RickAndMorty.Infrastructure;
+using RickAndMorty.Infrastructure.HttpClients.RickAndMorty;
+using RickAndMorty.Infrastructure.ServiceCollectionExtensions;
+using RickAndMorty.Infrastructure.Services;
+using RickAndMorty.WebApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
+
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSwaggerGen(options => {
@@ -21,8 +28,12 @@ builder.Services.AddSwaggerGen(options => {
     });
 });
 
-var app = builder.Build();
+// Layer registrations
+builder.Services.AddApplication();
+builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddWebApiServices(builder.Configuration);
 
+var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

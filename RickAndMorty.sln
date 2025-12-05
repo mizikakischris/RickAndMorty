@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RickAndMorty.Application", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RickAndMorty.Common", "RickAndMorty.Common\RickAndMorty.Common.csproj", "{0D5A9887-1067-47A1-B1BA-BD920EBE6321}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RickAndMorty.Infrastructure", "RickAndMorty.Infrastructure\RickAndMorty.Infrastructure.csproj", "{89A7AEB8-3914-457F-94DE-D49FB9D6C08C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0D5A9887-1067-47A1-B1BA-BD920EBE6321}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D5A9887-1067-47A1-B1BA-BD920EBE6321}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D5A9887-1067-47A1-B1BA-BD920EBE6321}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89A7AEB8-3914-457F-94DE-D49FB9D6C08C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89A7AEB8-3914-457F-94DE-D49FB9D6C08C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89A7AEB8-3914-457F-94DE-D49FB9D6C08C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89A7AEB8-3914-457F-94DE-D49FB9D6C08C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

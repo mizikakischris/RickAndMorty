@@ -13,7 +13,6 @@ public static class ActionResultHelper
     {
         return result.IsSuccess ? new OkObjectResult(result.Value) : CreateErrorResult(result, context);
     }
-
     private static ObjectResult CreateErrorResult(
     ResultBase result,
     HttpContext context)

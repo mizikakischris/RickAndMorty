@@ -18,6 +18,7 @@
     <ProjectReference Include="..\RickAndMorty.Application\RickAndMorty.Application.csproj" />
     <ProjectReference Include="..\RickAndMorty.Common\RickAndMorty.Common.csproj" />
     <ProjectReference Include="..\RickAndMorty.Domain\RickAndMorty.Domain.csproj" />
+    <ProjectReference Include="..\RickAndMorty.Infrastructure\RickAndMorty.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

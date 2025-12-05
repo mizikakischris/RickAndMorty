@@ -3,7 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using RickAndMorty.Application.Features.Queries;
 using RickAndMorty.Common.Utils;
-using RickAndMorty.WebApi.Responses;
+using RickAndMorty.Domain.Models;
 
 namespace RickAndMorty.WebApi.Controllers;
 
@@ -21,18 +21,12 @@ public class CharactersController : ControllerBase
     }
 
     [HttpGet]
-    [ProducesResponseType(typeof(CharactersResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(CharactersDomainResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(BadRequestObjectResult), StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<CharactersListResponse>> GetCharacters(CancellationToken cancellationToken)
+    public async Task<ActionResult<CharactersDomainResponse>> GetCharacters(CancellationToken cancellationToken)
     {
         var charactersResult = await _mediator.Send(new CharactersQuery(), cancellationToken);
 
-        var mappedResult = charactersResult.Map(characters =>
-            new CharactersListResponse
-            {
-                Results = _mapper.Map<IEnumerable<CharactersResponse>>(characters)
-            });
-
-        return mappedResult.ToActionResult(HttpContext);
+        return charactersResult.ToActionResult(HttpContext);
     }
 }
