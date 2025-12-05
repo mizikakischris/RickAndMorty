@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35728.132 d17.12
+VisualStudioVersion = 17.12.35728.132
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RickAndMorty.WebApi", "RickAndMorty_WebApi\RickAndMorty.WebApi.csproj", "{D5F07C67-75D3-44FC-8284-7BAF43A1228A}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RickAndMorty.Common", "RickAndMorty.Common\RickAndMorty.Common.csproj", "{0D5A9887-1067-47A1-B1BA-BD920EBE6321}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RickAndMorty.Infrastructure", "RickAndMorty.Infrastructure\RickAndMorty.Infrastructure.csproj", "{89A7AEB8-3914-457F-94DE-D49FB9D6C08C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RickAndMortyWebApp", "RickAndMortyWebApp\RickAndMortyWebApp.csproj", "{AD9D4080-8176-4AE8-A593-7C130CB2607B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{89A7AEB8-3914-457F-94DE-D49FB9D6C08C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89A7AEB8-3914-457F-94DE-D49FB9D6C08C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89A7AEB8-3914-457F-94DE-D49FB9D6C08C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD9D4080-8176-4AE8-A593-7C130CB2607B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD9D4080-8176-4AE8-A593-7C130CB2607B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD9D4080-8176-4AE8-A593-7C130CB2607B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD9D4080-8176-4AE8-A593-7C130CB2607B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
