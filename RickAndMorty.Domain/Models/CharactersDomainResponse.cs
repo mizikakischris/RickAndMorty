@@ -2,6 +2,5 @@
 
 public class CharactersDomainResponse
 {
-    public PagingInfo PagingInfo { get; set; }
-    public IEnumerable<Character> CharactersList { get; set; }
+    public List<Character> CharactersList { get; set; } = [];
 }

@@ -1,4 +1,5 @@
-﻿using RickAndMorty.Application.Interfaces;
+﻿using AutoMapper;
+using RickAndMorty.Application.Interfaces;
 using RickAndMorty.Domain.Models;
 using RickAndMorty.Infrastructure.Persistence.Entities;
 using Character = RickAndMorty.Infrastructure.Persistence.Entities.Character;
@@ -11,15 +12,25 @@ public class CharacterDataService : ICharacterDataService
     private readonly IRepository<Character> _characterRepository;
     private readonly IRepository<CharacterEpisode> _characterEpisodeRepository;
     private readonly IRepository<CharacterLocation> _characterLocationRepository;
+    private readonly IMapper _mapper;
 
     public CharacterDataService(
         IRepository<Character> characterRepository,
         IRepository<CharacterEpisode> characterEpisodeRepository,
-        IRepository<CharacterLocation> characterLocationRepository)
+        IRepository<CharacterLocation> characterLocationRepository,
+        IMapper mapper)
     {
         _characterRepository = characterRepository;
         _characterEpisodeRepository = characterEpisodeRepository;
         _characterLocationRepository = characterLocationRepository;
+        _mapper = mapper;
+    }
+
+    public async Task<List<Domain.Models.Character>> GetAliveCharactersAsync(CancellationToken cancellationToken)
+    {
+        var dbCharacters = await _characterRepository.GetAllAsync(cancellationToken);
+
+        return _mapper.Map<List<Domain.Models.Character>>(dbCharacters);
     }
 
     public async Task StoreAliveCharactersAsync(CharactersDomainResponse characters, CancellationToken cancellationToken)

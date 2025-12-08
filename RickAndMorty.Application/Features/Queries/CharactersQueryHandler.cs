@@ -34,51 +34,47 @@ public class CharactersQueryHandler
     }
 
     public async Task<Result<CharactersResult>> Handle(
-        CharactersQuery request,
-        CancellationToken cancellationToken)
+    CharactersQuery request,
+    CancellationToken cancellationToken)
     {
         return await ExceptionHandlingHelper.ExecuteWithApiExceptionHandling(async () =>
         {
-            bool fromDatabase = true;
+            bool fromDatabase = false;
+            _memoryCache.TryGetValue(CacheKey, out CharactersCacheInfo? cacheInfo);
+            bool expired = cacheInfo is null ||
+                           (DateTime.UtcNow - cacheInfo.LastFetchUtc) > CacheDuration;
 
             bool invalidated = _memoryCache.Get<bool>(CacheInvalidatedKey);
 
-            CharactersCacheEntry? entry = null;
-            _memoryCache.TryGetValue(CacheKey, out entry);
+            List<Character> charactersList;
 
-            bool expired = entry is null ||
-                           (DateTime.UtcNow - entry.CachedAt) > CacheDuration;
-
-            CharactersDomainResponse characters;
-
-            if (!invalidated && !expired)
+            if (!expired && !invalidated && cacheInfo != null)
             {
-                characters = entry!.Data;
+                charactersList = cacheInfo.Characters;
             }
             else
             {
-                // Fetch new data from external API
-                characters = await _client.GetCharactersAsync(cancellationToken);
+                // Cache expired  fetch from API
+                var externalCharacters = await _client.GetCharactersAsync(cancellationToken);
 
-                // Store alive characters in DB
-                await _characterDataService.StoreAliveCharactersAsync(characters, cancellationToken);
+                // Clear db and save alive characters
+                await _characterDataService.StoreAliveCharactersAsync(externalCharacters, cancellationToken);
 
-                // Update cache with timestamp
-                var newEntry = new CharactersCacheEntry
+                // Read fresh from DB
+                charactersList = await _characterDataService.GetAliveCharactersAsync(cancellationToken);
+                fromDatabase = true;
+                // Update cache
+                _memoryCache.Set(CacheKey, new CharactersCacheInfo
                 {
-                    Data = characters,
-                    CachedAt = DateTime.UtcNow
-                };
-
-                _memoryCache.Set(CacheKey, newEntry);
+                    LastFetchUtc = DateTime.UtcNow,
+                    Characters = charactersList
+                });
                 _memoryCache.Set(CacheInvalidatedKey, false);
-
-                fromDatabase = false;
             }
 
             return Result.Ok(new CharactersResult
             {
-                Characters = characters,
+                Characters = charactersList,
                 FromDatabase = fromDatabase
             });
         });

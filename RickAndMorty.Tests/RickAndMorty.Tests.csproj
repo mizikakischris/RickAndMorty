@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FakeItEasy" Version="8.3.0" />
+    <PackageReference Include="FluentAssertions" Version="8.8.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+    <PackageReference Include="MSTest.TestAdapter" Version="4.0.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="4.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RickAndMorty.Application\RickAndMorty.Application.csproj" />
+    <ProjectReference Include="..\RickAndMorty.Common\RickAndMorty.Common.csproj" />
+    <ProjectReference Include="..\RickAndMorty.Domain\RickAndMorty.Domain.csproj" />
+    <ProjectReference Include="..\RickAndMorty.Infrastructure\RickAndMorty.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
